@@ -1,5 +1,4 @@
 //connection.js
-
 const { connect, connection } = require('mongoose');
 
 const connectionString =

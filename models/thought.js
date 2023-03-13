@@ -1,6 +1,6 @@
 //thought.js
-
 const { Schema, model, Types } = require('mongoose');
+const moment = require('moment');
 
 const thoughtSchema = new Schema(
     {
