@@ -276,5 +276,9 @@ You are required to submit BOTH of the following for review:
 
 * The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
 
+[Walkthrough Video](https://drive.google.com/file/d/1oRnvDsC2PEwnXSfLeLeiAPGAgQyBd7y6/view)
+
+[GitHub Repository](https://github.com/N3tRunn3rr/Social-Network-API)
+
 ---
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
