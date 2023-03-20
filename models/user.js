@@ -1,6 +1,5 @@
 //user.js
 const { Schema, model, Types } = require('mongoose');
-const moment = require('moment');
 
 const userSchema = new Schema(
     {

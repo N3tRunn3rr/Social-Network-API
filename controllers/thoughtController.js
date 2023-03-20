@@ -9,48 +9,48 @@ module.exports = {
         .catch((err) => res.status(400).json(err));
     },
     // get one thought by id
-    getThoughtById({ params }, res) {
-        Thought.findOne({ _id: params.id })
+    getThoughtById(req, res) {
+        Thought.findOne({ _id: req.params.id })
         .then ((ThoughtData) =>  res.JSON(ThoughtData))
         .catch((err) => res.status(400).json(err));
     },
     // createThought
-    createThought({ body }, res) {
-        Thought.create(body)
+    createThought(req , res) {
+        Thought.create(req.body)
         .then((ThoughtData) => res.json(ThoughtData))
         .catch((err) => res.status(400).json(err));
     },
     // update thought by id
-    updateThought({ params, body }, res) {
+    updateThought(req, res) {
         Thought.findOneAndUpdate(
-            { _id: params.id },
-            { $set: body },
+            { _id: req.params.thoughtId },
+            { $set: req.body },
             { runValidators: true, new: true }
         )
         .then((ThoughtData) => res.json(ThoughtData))
         .catch((err) => res.status(400).json(err));
     },
     // delete thought
-    deleteThought({ params }, res) {
-        Thought.findOneAndDelete({ _id: params.id })
+    deleteThought(req, res) {
+        Thought.findOneAndDelete({ _id: req.params.id })
         .then((ThoughtData) => res.json(ThoughtData))
         .catch((err) => res.status(400).json(err));
     },
     // add reaction
-    addReaction({ params, body }, res) {
+    addReaction(req, res) {
         Thought.findOneAndUpdate(
-            { _id: params.thoughtId },
-            { $addToSet: { reactions: body } },
+            { _id: req.params.thoughtId },
+            { $addToSet: { reactions: req.body } },
             { runValidators: true, new: true }
         )
         .then((ThoughtData) => res.json(ThoughtData))
         .catch((err) => res.status(400).json(err));
     },
     // delete reaction
-    deleteReaction({ params }, res) {
+    deleteReaction(req, res) {
         Thought.findOneAndUpdate(
-            { _id: params.thoughtId },
-            { $pull: { reactions: { reactionId: params.reactionId } } },
+            { _id: req.params.thoughtId },
+            { $pull: { reactions: { reactionId: req.params.reactionId } } },
             { runValidators: true, new: true }
         )
         .then((ThoughtData) => res.json(ThoughtData))
